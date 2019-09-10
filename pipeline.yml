@@ -1,0 +1,32 @@
+# Copy pipeline-secrets-example.yml to pipeline-secrets.yml and update with your values then run:
+# fly -t ci set-pipeline -p maven-cf-simple -c pipeline.yml -l pipeline-secrets.yml
+---
+resources:
+- name: source-code
+  type: git
+  source:
+    uri: https://github.com/ravipan30/concourse.git
+    branch: master
+
+- name: cf
+  type: cf
+  source:
+    api: api.sys.pas-useast1.gcp-wipro.com
+    username: ravindra.pandey@wipro.com
+    password: changeme
+    organization:Pcf-training
+    space: training
+    #skip_cert_check: true
+
+jobs:
+- name: build
+  public: true
+  plan:
+  - get: source-code
+    trigger: true
+  - task: build
+    file: build.yml
+  - put: cf
+    params:
+      manifest: manifest.yml
+      path: build-output/demo_ravi_h2-0.0.1-SNAPSHOT.jar
