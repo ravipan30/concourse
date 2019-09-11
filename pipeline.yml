@@ -14,7 +14,7 @@ resources:
     api: api.sys.pas-useast1.gcp-wipro.com
     username: ravindra.pandey@wipro.com
     password: changeme
-    organization:Pcf-training
+    organization: Pcf-training
     space: training
     #skip_cert_check: true
 
@@ -25,8 +25,8 @@ jobs:
   - get: source-code
     trigger: true
   - task: build
-    file: concourse/build.yml
+    file: source-code/build.yml
   - put: cf
     params:
-      manifest: concourse/manifest.yml
-      path: concourse/demo_ravi_h2-0.0.1-SNAPSHOT.jar
+      manifest: source-code/manifest.yml
+      path: source-code/demo_ravi_h2-0.0.1-SNAPSHOT.jar
