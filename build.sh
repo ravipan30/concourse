@@ -1,7 +1,7 @@
 #!/bin/sh
 
 set -e -x
-Chmod +X build.sh
+chmod +x build.sh
 cd source-code
   ./mvnw clean package
 cd ..
