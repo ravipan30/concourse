@@ -25,8 +25,8 @@ jobs:
   - get: source-code
     trigger: true
   - task: build
-    file: build.yml
+    file: demo_ravi_h2/build.yml
   - put: cf
     params:
-      manifest: manifest.yml
+      manifest: demo_ravi_h2/manifest.yml
       path: build-output/demo_ravi_h2-0.0.1-SNAPSHOT.jar
