@@ -19,5 +19,5 @@ run:
   - -exc
   - |
     cd source-code
-    ./mvn clean package
+    sudo ./mvnw clean package
     cp demo_ravi_h2/target/demo_ravi_h2-0.0.1-SNAPSHOT.jar  build-output/.
