@@ -1,8 +1,7 @@
 #!/bin/sh
-Chmod +X java1.sh
-Chmod +X java.sh
-set -e -x
 
+set -e -x
+Chmod +X build.sh
 cd source-code
   ./mvnw clean package
 cd ..
