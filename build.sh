@@ -2,6 +2,7 @@
 
 set -e -x
 cd source-code
+chmod +x mvnw
   ./mvnw clean package
 cd ..
 
