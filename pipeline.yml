@@ -11,9 +11,9 @@ resources:
 - name: cf
   type: cf
   source:
-    api: api.sys.pas-useast1.gcp-wipro.com
-    username: ravindra.pandey@wipro.com
-    password: changeme
+    api: ${CF_API_URL}
+    username: ${CF_USER}
+    password: ${CF_PASSWORD}
     organization: Pcf-training
     space: training
     #skip_cert_check: true
